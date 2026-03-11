@@ -21,6 +21,8 @@ dependencies:
   percent_indicator: ^4.2.3
   image: ^4.1.7
   pdfx: ^2.8.0
+  syncfusion_flutter_pdf: ^32.2.9
+  syncfusion_flutter_core: ^32.2.9
 
 dev_dependencies:
   flutter_test:

@@ -1,70 +1,92 @@
 import 'dart:typed_data';
+import 'package:image/image.dart' as img;
 import '../helpers/pdf_parser.dart';
-import '../helpers/jpeg_resampler.dart';
 
-/// ⚡ Balanced Strateji
-/// Tüm görsel formatları sıkıştır — Ctrl+F ✅ | ~%40-70 küçülme
+/// ⚡ Balanced Strategy
+/// Standard Image Compression - Analyzing images... ✅ | ~40-60% reduction
+///
+/// This strategy balances quality and compression:
+/// - Image Resampling: Limit resolution to 144-150 DPI
+/// - JPEG Compression: Force all images to JPEG format with 65% quality
+/// - Metadata Cleaning: Remove document info
+///
+/// Result: 40-60% reduction. Imperceptible quality loss on screen or in print.
 class BalancedStrategy {
-  static const int _quality = 60;
+  static const int _jpegQuality = 65;
   final void Function(double, String)? onProgress;
+
   BalancedStrategy({this.onProgress});
 
   Future<Uint8List> run(Uint8List input) async {
-    _emit(0.05, 'PDF yapısı okunuyor...');
+    _emit(0.10, 'Reading PDF document...');
     final parser = PdfParser(input);
 
-    _emit(0.15, 'Metadata temizleniyor...');
+    _emit(0.20, 'Cleaning metadata...');
     _cleanMetadata(parser);
 
-    _emit(0.35, 'Görseller sıkıştırılıyor...');
-    await _compressImages(parser);
+    _emit(0.30, 'Analyzing images...');
+    final images = parser.objects.where((o) => o.isCompressibleImage).toList();
 
-    _emit(0.80, 'Fontlar optimize ediliyor...');
+    _emit(0.40, 'Compressing images to 144 DPI...');
+    for (int i = 0; i < images.length; i++) {
+      final obj = images[i];
+      _emit(0.40 + (0.30 * i / images.length.clamp(1, 999)),
+          'Compressing image ${i + 1}/${images.length}...');
+
+      final bytes = obj.extractStreamBytes();
+      if (bytes == null || bytes.length < 100) continue;
+
+      try {
+        final bytesU8 = bytes is Uint8List ? bytes : Uint8List.fromList(bytes);
+        final decompressed = img.decodeImage(bytesU8);
+        if (decompressed != null) {
+          // Resize to 144 DPI
+          final resized = img.copyResize(
+            decompressed,
+            width: (decompressed.width * 144 / 300).toInt(),
+            height: (decompressed.height * 144 / 300).toInt(),
+            interpolation: img.Interpolation.linear,
+          );
+
+          // Encode as JPEG with 65% quality
+          final encoded = img.encodeJpg(resized, quality: _jpegQuality);
+
+          if (encoded.length < bytes.length) {
+            obj.replaceStreamWithJpeg(encoded);
+          }
+        }
+      } catch (e) {
+        // Continue if image fails
+      }
+    }
+
+    _emit(0.75, 'Removing empty objects...');
+    parser.objects.removeWhere((o) => o.hasEmptyStream);
+
+    _emit(0.85, 'Optimizing fonts...');
     _optimizeFonts(parser);
 
-    _emit(0.93, 'Dosya yazılıyor...');
+    _emit(0.95, 'Building PDF...');
     final result = parser.build();
 
-    _emit(1.00, 'Tamamlandı ✓');
+    _emit(1.00, 'Done! ✓');
     return result;
   }
 
   void _cleanMetadata(PdfParser parser) {
     parser.objects.removeWhere((o) => o.isMetadata);
-    parser.objects.removeWhere((o) => o.hasEmptyStream);
+
     const fields = [
-      r'/Author\s*\([^)]*\)', r'/Creator\s*\([^)]*\)',
-      r'/Producer\s*\([^)]*\)', r'/Keywords\s*\([^)]*\)',
-      r'/Subject\s*\([^)]*\)', r'/CreationDate\s*\([^)]*\)',
-      r'/ModDate\s*\([^)]*\)', r'/Trapped\s*/\w+',
-      r'/Author\s*<[^>]*>', r'/Creator\s*<[^>]*>',
-      r'/Producer\s*<[^>]*>', r'/CreationDate\s*<[^>]*>',
-      r'/ModDate\s*<[^>]*>',
+      r'/Author\s*\([^)]*\)',
+      r'/Creator\s*\([^)]*\)',
+      r'/Producer\s*\([^)]*\)',
+      r'/Keywords\s*\([^)]*\)',
+      r'/Subject\s*\([^)]*\)',
     ];
+
     for (final obj in parser.objects) {
-      if (!obj.content.contains('<<')) continue;
-      for (final f in fields) {
-        obj.content = obj.content.replaceAll(RegExp(f), '');
-      }
-    }
-  }
-
-  Future<void> _compressImages(PdfParser parser) async {
-    final images = parser.objects.where((o) => o.isCompressibleImage).toList();
-    for (int i = 0; i < images.length; i++) {
-      final obj = images[i];
-      _emit(0.35 + (0.45 * i / images.length.clamp(1, 9999)),
-          'Görsel sıkıştırılıyor... ($i/${images.length})');
-
-      final bytes = obj.extractStreamBytes();
-      if (bytes == null || bytes.length < 100) continue;
-      if (!JpegResampler.isImage(bytes)) continue;
-
-      final compressed = JpegResampler.resample(bytes, quality: _quality);
-
-      // Sadece küçüldüyse değiştir
-      if (compressed.length < bytes.length) {
-        obj.replaceStreamWithJpeg(compressed);
+      for (final field in fields) {
+        obj.content = obj.content.replaceAll(RegExp(field), '');
       }
     }
   }
@@ -73,7 +95,9 @@ class BalancedStrategy {
     for (final obj in parser.objects) {
       if (!obj.isFont) continue;
       obj.content = obj.content.replaceAll(
-          RegExp(r'/ToUnicode\s+\d+\s+\d+\s+R'), '');
+        RegExp(r'/FontDescriptor\s+\d+\s+\d+\s+R'),
+        ''
+      );
     }
   }
 

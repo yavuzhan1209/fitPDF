@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:fitpdf/l10n/app_localizations.dart';
 import '../../../../core/theme/app_theme.dart';
 
 class RecentFilesList extends StatelessWidget {
@@ -7,7 +6,6 @@ class RecentFilesList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final l = AppLocalizations.of(context);
     final files = [
       ('Q4_Report_2024.pdf',     '12.4 MB', '3.1 MB', 75),
       ('Design_Assets_v3.pdf',   '8.7 MB',  '3.0 MB', 65),

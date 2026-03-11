@@ -57,13 +57,13 @@ class AppLocalizationsEn extends AppLocalizations {
   String get levelMaximum => 'Maximum';
 
   @override
-  String get levelLightDesc => 'High quality\n~25% smaller';
+  String get levelLightDesc => 'Lossless optimization\n~5-15% smaller';
 
   @override
-  String get levelBalancedDesc => 'Best of both\n~55% smaller';
+  String get levelBalancedDesc => 'Smart image compression\n~40-60% smaller';
 
   @override
-  String get levelMaximumDesc => 'Smallest size\n~80% smaller';
+  String get levelMaximumDesc => 'Aggressive archival\n~70-90% smaller';
 
   @override
   String get compressing => 'Compressing...';
@@ -97,6 +97,89 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get compression => 'Compression';
+
+  @override
+  String get lightReadingMsg => 'Reading PDF structure...';
+
+  @override
+  String get lightCleaningMetadataMsg => 'Cleaning document metadata...';
+
+  @override
+  String get lightCleaningInfoMsg => 'Cleaning info dictionary...';
+
+  @override
+  String get lightRemovingEmptyMsg => 'Removing empty streams...';
+
+  @override
+  String get lightSubsettingFontsMsg => 'Subsetting fonts...';
+
+  @override
+  String get lightRemovingUnusedMsg => 'Removing unused resources...';
+
+  @override
+  String get lightBuildingMsg => 'Building optimized PDF...';
+
+  @override
+  String get lightCompletedMsg => 'Done! ✓';
+
+  @override
+  String get balancedReadingMsg => 'Reading PDF document...';
+
+  @override
+  String get balancedAnalyzingImagesMsg => 'Analyzing images...';
+
+  @override
+  String get balancedResamplingMsg => 'Resampling images to 144 DPI...';
+
+  @override
+  String get balancedCompressingJpegMsg =>
+      'Compressing to JPEG (quality: 65%)...';
+
+  @override
+  String get balancedOptimizingStreamMsg => 'Optimizing image streams...';
+
+  @override
+  String get balancedCleaningMetadataMsg => 'Cleaning metadata...';
+
+  @override
+  String get balancedOptimizingFontsMsg => 'Optimizing fonts...';
+
+  @override
+  String get balancedBuildingMsg => 'Building optimized PDF...';
+
+  @override
+  String get balancedCompletedMsg => 'Done! ✓';
+
+  @override
+  String get maximumReadingMsg => 'Reading PDF document...';
+
+  @override
+  String get maximumAnalyzingImagesMsg =>
+      'Analyzing images for archival compression...';
+
+  @override
+  String get maximumGrayscaleMsg =>
+      'Converting images to grayscale (3x reduction)...';
+
+  @override
+  String get maximumResamplingMsg =>
+      'Resampling to 72 DPI (screen standard)...';
+
+  @override
+  String get maximumCompressingJpegMsg =>
+      'Applying aggressive JPEG compression (30-40%)...';
+
+  @override
+  String get maximumRemovingMetadataMsg => 'Removing all metadata...';
+
+  @override
+  String get maximumRemovingFontsMsg => 'Removing font data...';
+
+  @override
+  String get maximumBuildingMsg => 'Building compressed PDF...';
+
+  @override
+  String get maximumCompletedMsg => 'Done! ✓';
 
   @override
   String get resultTitle => 'Compression Done!';

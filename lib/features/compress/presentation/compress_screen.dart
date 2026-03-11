@@ -151,7 +151,7 @@ class _CompressScreenState extends State<CompressScreen> {
               AnimatedSwitcher(
                 duration: const Duration(milliseconds: 300),
                 child: Text(
-                  _done ? (l.compressionDone ?? 'Tamamlandı!') : (l.compressing ?? 'Sıkıştırılıyor...'),
+                  _done ? l.compressionDone : l.compressing,
                   key: ValueKey(_done),
                   style: Theme.of(context).textTheme.displayMedium,
                 ),
@@ -195,7 +195,7 @@ class _CompressScreenState extends State<CompressScreen> {
                 child: Row(mainAxisSize: MainAxisSize.min, children: [
                   Text(widget.level.emoji, style: const TextStyle(fontSize: 18)),
                   const SizedBox(width: 8),
-                  Text('${_levelName(context, widget.level)} ${l.compression ?? 'Sıkıştırma'}',
+                  Text('${_levelName(context, widget.level)} ${l.compression}',
                       style: const TextStyle(color: AppTheme.textSecondary, fontWeight: FontWeight.w500, fontSize: 14)),
                 ]),
               ),
@@ -210,9 +210,9 @@ class _CompressScreenState extends State<CompressScreen> {
   String _levelName(BuildContext ctx, CompressionLevel lvl) {
     final l = AppLocalizations.of(ctx);
     switch (lvl) {
-      case CompressionLevel.light:    return l.levelLight    ?? 'Hafif';
-      case CompressionLevel.balanced: return l.levelBalanced ?? 'Dengeli';
-      case CompressionLevel.maximum:  return l.levelMaximum  ?? 'Maksimum';
+      case CompressionLevel.light:    return l.levelLight;
+      case CompressionLevel.balanced: return l.levelBalanced;
+      case CompressionLevel.maximum:  return l.levelMaximum;
     }
   }
 }

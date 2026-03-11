@@ -57,13 +57,13 @@ class AppLocalizationsTr extends AppLocalizations {
   String get levelMaximum => 'Maksimum';
 
   @override
-  String get levelLightDesc => 'Yüksek kalite\n~%25 küçük';
+  String get levelLightDesc => 'Kayıpsız optimizasyon\n~%5-15 küçük';
 
   @override
-  String get levelBalancedDesc => 'En iyi denge\n~%55 küçük';
+  String get levelBalancedDesc => 'Akıllı görsel sıkıştırma\n~%40-60 küçük';
 
   @override
-  String get levelMaximumDesc => 'En küçük boyut\n~%80 küçük';
+  String get levelMaximumDesc => 'Agresif arşivleme\n~%70-90 küçük';
 
   @override
   String get compressing => 'Sıkıştırılıyor...';
@@ -97,6 +97,92 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get compression => 'Sıkıştırma';
+
+  @override
+  String get lightReadingMsg => 'PDF yapısı okunuyor...';
+
+  @override
+  String get lightCleaningMetadataMsg => 'Belge metaverisi temizleniyor...';
+
+  @override
+  String get lightCleaningInfoMsg => 'Bilgi sözlüğü temizleniyor...';
+
+  @override
+  String get lightRemovingEmptyMsg => 'Boş akışlar kaldırılıyor...';
+
+  @override
+  String get lightSubsettingFontsMsg => 'Fontlar alt kümeye ayrılıyor...';
+
+  @override
+  String get lightRemovingUnusedMsg =>
+      'Kullanılmayan kaynaklar kaldırılıyor...';
+
+  @override
+  String get lightBuildingMsg => 'Optimize edilmiş PDF oluşturuluyor...';
+
+  @override
+  String get lightCompletedMsg => 'Bitti! ✓';
+
+  @override
+  String get balancedReadingMsg => 'PDF belgesi okunuyor...';
+
+  @override
+  String get balancedAnalyzingImagesMsg => 'Görseller analiz ediliyor...';
+
+  @override
+  String get balancedResamplingMsg =>
+      'Görseller 144 DPI\'ye yeniden örnekleniyor...';
+
+  @override
+  String get balancedCompressingJpegMsg =>
+      'JPEG\'e sıkıştırılıyor (kalite: %65)...';
+
+  @override
+  String get balancedOptimizingStreamMsg =>
+      'Görsel akışları optimize ediliyor...';
+
+  @override
+  String get balancedCleaningMetadataMsg => 'Meta veriler temizleniyor...';
+
+  @override
+  String get balancedOptimizingFontsMsg => 'Fontlar optimize ediliyor...';
+
+  @override
+  String get balancedBuildingMsg => 'Optimize edilmiş PDF oluşturuluyor...';
+
+  @override
+  String get balancedCompletedMsg => 'Bitti! ✓';
+
+  @override
+  String get maximumReadingMsg => 'PDF belgesi okunuyor...';
+
+  @override
+  String get maximumAnalyzingImagesMsg =>
+      'Arşivleme sıkıştırması için görseller analiz ediliyor...';
+
+  @override
+  String get maximumGrayscaleMsg =>
+      'Görseller gri tona dönüştürülüyor (3x azalma)...';
+
+  @override
+  String get maximumResamplingMsg =>
+      '72 DPI\'ye yeniden örnekleniyor (ekran standardı)...';
+
+  @override
+  String get maximumCompressingJpegMsg =>
+      'Agresif JPEG sıkıştırması uygulanıyor (%30-40)...';
+
+  @override
+  String get maximumRemovingMetadataMsg => 'Tüm meta veriler kaldırılıyor...';
+
+  @override
+  String get maximumRemovingFontsMsg => 'Font verisi kaldırılıyor...';
+
+  @override
+  String get maximumBuildingMsg => 'Sıkıştırılmış PDF oluşturuluyor...';
+
+  @override
+  String get maximumCompletedMsg => 'Bitti! ✓';
 
   @override
   String get resultTitle => 'Sıkıştırma Tamamlandı!';
