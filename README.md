@@ -1,58 +1,21 @@
 # FitPDF 🗜️
-**Sıkıştır ve Paylaş** — Flutter PDF Compressor
+**Compress and Share** — A Cross-Platform Flutter PDF Compressor
 
-## 🚀 Kurulum ve Çalıştırma
+## 📝 About FitPDF
 
-```bash
-# 1. Bağımlılıkları yükle
-flutter pub get
+FitPDF is a modern, user-friendly PDF compression application built with Flutter. It enables users to reduce PDF file sizes without significant quality loss, making it easier to share and store PDF documents. The app offers multiple compression levels, supports multiple languages (English and Turkish), and features a polished UI with glassmorphism design patterns and coral red branding.
 
-# 2. Localizations oluştur (otomatik - generate: true ile)
-flutter gen-l10n
+**Current Status**: Beta Version
+- ✅ Core compression UI implemented
+- ✅ Multi-language support (English, Turkish)
+- ✅ Android and iOS platform support
+- 🚧 Actual PDF compression logic (see Production Upgrade section)
 
-# 3. Android'de çalıştır
-flutter run
-
-# 4. Release APK
-flutter build apk --release
-```
-
-## 🌍 Dil Ekleme
-
-Yeni bir dil eklemek için sadece 2 adım:
-
-### Adım 1 — ARB dosyası oluştur
-`lib/core/l10n/` klasörüne `app_de.arb` (Almanca için) ekle:
-```json
-{
-  "@@locale": "de",
-  "appName": "FitPDF",
-  "tagline": "Komprimieren und teilen",
-  ...
-}
-```
-
-### Adım 2 — main.dart'a ekle
-```dart
-supportedLocales: const [
-  Locale('en'),
-  Locale('tr'),
-  Locale('de'),  // ← bunu ekle
-],
-```
-
-### Adım 3 — Dil seçicide göster
-`home_screen.dart` → `_showLanguageSheet()` içine:
-```dart
-_langTile(context, '🇩🇪  Deutsch', const Locale('de')),
-```
-
-## 📁 Proje Yapısı
 
 ```
 lib/
-├── main.dart                          # App entry + locale yönetimi
-├── l10n.yaml                          # ARB config
+├── main.dart                          # App entry point + locale management
+├── l10n.yaml                          # ARB configuration
 ├── core/
 │   ├── theme/app_theme.dart           # Coral Red brand colors
 │   ├── constants/app_constants.dart   # CompressionLevel enum
@@ -63,9 +26,9 @@ lib/
 │       ├── app_en.arb                 # 🇬🇧 English strings
 │       └── app_tr.arb                 # 🇹🇷 Turkish strings
 └── features/
-    ├── home/                          # Select PDF + level picker
-    ├── compress/                      # Progress + compress logic
-    └── result/                        # Stats + Share
+    ├── home/                          # Select PDF + compression level picker
+    ├── compress/                      # Progress indicator + compression logic
+    └── result/                        # Compression stats + Share functionality
 
 android/
 ├── app/build.gradle                   # compileSdk, minSdk 21
@@ -80,32 +43,20 @@ android/
 
 ios/
 ├── Runner/Info.plist                  # PDF document type, permissions
-├── Runner/AppDelegate.swift           # Flutter v2
+├── Runner/AppDelegate.swift           # Flutter v2 embedding
 └── Podfile                            # platform :ios, '12.0'
 ```
 
-## ⚡ Compression Levels
+## 📱 Supported Platforms
 
-| Level    | Image Quality | Boyut Hedefi |
-|----------|:---:|:---:|
-| 🪶 Hafif    | 85% | ~%25 küçük |
-| ⚡ Dengeli  | 60% | ~%55 küçük |
-| 💎 Maksimum | 35% | ~%80 küçük |
-
-## 🔧 Gerçek PDF Sıkıştırma (Production Upgrade)
-
-`compress_screen.dart` → `_compress()` metodunu şu şekilde upgrade et:
-
-```dart
-// 1. PDF'i oku (pdf package ile parse et)
-// 2. Her sayfadaki görselleri çıkar
-// 3. image package ile kaliteyi düşür (imageQuality getter'ı kullan)
-// 4. Görselleri geri göm ve yeni PDF yaz
-```
-
-## 📱 Desteklenen Platformlar
-
-| Platform | Min Versiyon | Durum |
+| Platform | Minimum Version | Status |
 |:---:|:---:|:---:|
-| Android | API 21 (Android 5.0) | ✅ |
-| iOS | iOS 12.0 | ✅ |
+| Android | API 21 (Android 5.0) | ✅ Active |
+| iOS | iOS 12.0 | ✅ Active |
+
+## 🎨 Design System
+
+- **Brand Color**: Coral Red (#FF6B6B)
+- **UI Pattern**: Glassmorphism cards with modern gradient buttons
+- **Font**: System default with custom text scales
+- **Localization**: Full support for multi-language deployment
