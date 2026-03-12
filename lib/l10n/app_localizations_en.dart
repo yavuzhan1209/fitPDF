@@ -48,19 +48,13 @@ class AppLocalizationsEn extends AppLocalizations {
   String get noRecentFiles => 'No recent files yet';
 
   @override
-  String get levelLight => 'Light';
-
-  @override
-  String get levelBalanced => 'Balanced';
+  String get levelSmart => 'Smart';
 
   @override
   String get levelMaximum => 'Maximum';
 
   @override
-  String get levelLightDesc => 'Lossless optimization\n~5-15% smaller';
-
-  @override
-  String get levelBalancedDesc => 'Smart image compression\n~40-60% smaller';
+  String get levelSmartDesc => 'Smart compression\n~40-60% smaller';
 
   @override
   String get levelMaximumDesc => 'Aggressive archival\n~70-90% smaller';
@@ -99,56 +93,24 @@ class AppLocalizationsEn extends AppLocalizations {
   String get compression => 'Compression';
 
   @override
-  String get lightReadingMsg => 'Reading PDF structure...';
+  String get smartReadingMsg => 'Reading PDF document...';
 
   @override
-  String get lightCleaningMetadataMsg => 'Cleaning document metadata...';
+  String get smartCleaningMetadataMsg => 'Cleaning metadata...';
 
   @override
-  String get lightCleaningInfoMsg => 'Cleaning info dictionary...';
+  String get smartAnalyzingImagesMsg => 'Analyzing images...';
 
   @override
-  String get lightRemovingEmptyMsg => 'Removing empty streams...';
+  String smartCompressingMsg(int current, int total) {
+    return 'Compressing page $current of $total...';
+  }
 
   @override
-  String get lightSubsettingFontsMsg => 'Subsetting fonts...';
+  String get smartBuildingMsg => 'Building optimized PDF...';
 
   @override
-  String get lightRemovingUnusedMsg => 'Removing unused resources...';
-
-  @override
-  String get lightBuildingMsg => 'Building optimized PDF...';
-
-  @override
-  String get lightCompletedMsg => 'Done! ✓';
-
-  @override
-  String get balancedReadingMsg => 'Reading PDF document...';
-
-  @override
-  String get balancedAnalyzingImagesMsg => 'Analyzing images...';
-
-  @override
-  String get balancedResamplingMsg => 'Resampling images to 144 DPI...';
-
-  @override
-  String get balancedCompressingJpegMsg =>
-      'Compressing to JPEG (quality: 65%)...';
-
-  @override
-  String get balancedOptimizingStreamMsg => 'Optimizing image streams...';
-
-  @override
-  String get balancedCleaningMetadataMsg => 'Cleaning metadata...';
-
-  @override
-  String get balancedOptimizingFontsMsg => 'Optimizing fonts...';
-
-  @override
-  String get balancedBuildingMsg => 'Building optimized PDF...';
-
-  @override
-  String get balancedCompletedMsg => 'Done! ✓';
+  String get smartCompletedMsg => 'Done! ✓';
 
   @override
   String get maximumReadingMsg => 'Reading PDF document...';
@@ -171,9 +133,6 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get maximumRemovingMetadataMsg => 'Removing all metadata...';
-
-  @override
-  String get maximumRemovingFontsMsg => 'Removing font data...';
 
   @override
   String get maximumBuildingMsg => 'Building compressed PDF...';

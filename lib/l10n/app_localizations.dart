@@ -176,17 +176,11 @@ abstract class AppLocalizations {
   /// **'No recent files yet'**
   String get noRecentFiles;
 
-  /// No description provided for @levelLight.
+  /// No description provided for @levelSmart.
   ///
   /// In en, this message translates to:
-  /// **'Light'**
-  String get levelLight;
-
-  /// No description provided for @levelBalanced.
-  ///
-  /// In en, this message translates to:
-  /// **'Balanced'**
-  String get levelBalanced;
+  /// **'Smart'**
+  String get levelSmart;
 
   /// No description provided for @levelMaximum.
   ///
@@ -194,17 +188,11 @@ abstract class AppLocalizations {
   /// **'Maximum'**
   String get levelMaximum;
 
-  /// No description provided for @levelLightDesc.
+  /// No description provided for @levelSmartDesc.
   ///
   /// In en, this message translates to:
-  /// **'Lossless optimization\n~5-15% smaller'**
-  String get levelLightDesc;
-
-  /// No description provided for @levelBalancedDesc.
-  ///
-  /// In en, this message translates to:
-  /// **'Smart image compression\n~40-60% smaller'**
-  String get levelBalancedDesc;
+  /// **'Smart compression\n~40-60% smaller'**
+  String get levelSmartDesc;
 
   /// No description provided for @levelMaximumDesc.
   ///
@@ -278,107 +266,41 @@ abstract class AppLocalizations {
   /// **'Compression'**
   String get compression;
 
-  /// No description provided for @lightReadingMsg.
-  ///
-  /// In en, this message translates to:
-  /// **'Reading PDF structure...'**
-  String get lightReadingMsg;
-
-  /// No description provided for @lightCleaningMetadataMsg.
-  ///
-  /// In en, this message translates to:
-  /// **'Cleaning document metadata...'**
-  String get lightCleaningMetadataMsg;
-
-  /// No description provided for @lightCleaningInfoMsg.
-  ///
-  /// In en, this message translates to:
-  /// **'Cleaning info dictionary...'**
-  String get lightCleaningInfoMsg;
-
-  /// No description provided for @lightRemovingEmptyMsg.
-  ///
-  /// In en, this message translates to:
-  /// **'Removing empty streams...'**
-  String get lightRemovingEmptyMsg;
-
-  /// No description provided for @lightSubsettingFontsMsg.
-  ///
-  /// In en, this message translates to:
-  /// **'Subsetting fonts...'**
-  String get lightSubsettingFontsMsg;
-
-  /// No description provided for @lightRemovingUnusedMsg.
-  ///
-  /// In en, this message translates to:
-  /// **'Removing unused resources...'**
-  String get lightRemovingUnusedMsg;
-
-  /// No description provided for @lightBuildingMsg.
-  ///
-  /// In en, this message translates to:
-  /// **'Building optimized PDF...'**
-  String get lightBuildingMsg;
-
-  /// No description provided for @lightCompletedMsg.
-  ///
-  /// In en, this message translates to:
-  /// **'Done! ✓'**
-  String get lightCompletedMsg;
-
-  /// No description provided for @balancedReadingMsg.
+  /// No description provided for @smartReadingMsg.
   ///
   /// In en, this message translates to:
   /// **'Reading PDF document...'**
-  String get balancedReadingMsg;
+  String get smartReadingMsg;
 
-  /// No description provided for @balancedAnalyzingImagesMsg.
-  ///
-  /// In en, this message translates to:
-  /// **'Analyzing images...'**
-  String get balancedAnalyzingImagesMsg;
-
-  /// No description provided for @balancedResamplingMsg.
-  ///
-  /// In en, this message translates to:
-  /// **'Resampling images to 144 DPI...'**
-  String get balancedResamplingMsg;
-
-  /// No description provided for @balancedCompressingJpegMsg.
-  ///
-  /// In en, this message translates to:
-  /// **'Compressing to JPEG (quality: 65%)...'**
-  String get balancedCompressingJpegMsg;
-
-  /// No description provided for @balancedOptimizingStreamMsg.
-  ///
-  /// In en, this message translates to:
-  /// **'Optimizing image streams...'**
-  String get balancedOptimizingStreamMsg;
-
-  /// No description provided for @balancedCleaningMetadataMsg.
+  /// No description provided for @smartCleaningMetadataMsg.
   ///
   /// In en, this message translates to:
   /// **'Cleaning metadata...'**
-  String get balancedCleaningMetadataMsg;
+  String get smartCleaningMetadataMsg;
 
-  /// No description provided for @balancedOptimizingFontsMsg.
+  /// No description provided for @smartAnalyzingImagesMsg.
   ///
   /// In en, this message translates to:
-  /// **'Optimizing fonts...'**
-  String get balancedOptimizingFontsMsg;
+  /// **'Analyzing images...'**
+  String get smartAnalyzingImagesMsg;
 
-  /// No description provided for @balancedBuildingMsg.
+  /// No description provided for @smartCompressingMsg.
+  ///
+  /// In en, this message translates to:
+  /// **'Compressing page {current} of {total}...'**
+  String smartCompressingMsg(int current, int total);
+
+  /// No description provided for @smartBuildingMsg.
   ///
   /// In en, this message translates to:
   /// **'Building optimized PDF...'**
-  String get balancedBuildingMsg;
+  String get smartBuildingMsg;
 
-  /// No description provided for @balancedCompletedMsg.
+  /// No description provided for @smartCompletedMsg.
   ///
   /// In en, this message translates to:
   /// **'Done! ✓'**
-  String get balancedCompletedMsg;
+  String get smartCompletedMsg;
 
   /// No description provided for @maximumReadingMsg.
   ///
@@ -415,12 +337,6 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Removing all metadata...'**
   String get maximumRemovingMetadataMsg;
-
-  /// No description provided for @maximumRemovingFontsMsg.
-  ///
-  /// In en, this message translates to:
-  /// **'Removing font data...'**
-  String get maximumRemovingFontsMsg;
 
   /// No description provided for @maximumBuildingMsg.
   ///

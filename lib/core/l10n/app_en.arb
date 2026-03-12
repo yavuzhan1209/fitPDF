@@ -15,11 +15,9 @@
   "recent": "RECENT",
   "noRecentFiles": "No recent files yet",
 
-  "levelLight": "Light",
-  "levelBalanced": "Balanced",
+  "levelSmart": "Smart",
   "levelMaximum": "Maximum",
-  "levelLightDesc": "Lossless optimization\n~5-15% smaller",
-  "levelBalancedDesc": "Smart image compression\n~40-60% smaller",
+  "levelSmartDesc": "Smart compression\n~40-60% smaller",
   "levelMaximumDesc": "Aggressive archival\n~70-90% smaller",
 
   "compressing": "Compressing...",
@@ -34,24 +32,18 @@
   "doneMsg": "Done! ✓",
   "compression": "Compression",
 
-  "lightReadingMsg": "Reading PDF structure...",
-  "lightCleaningMetadataMsg": "Cleaning document metadata...",
-  "lightCleaningInfoMsg": "Cleaning info dictionary...",
-  "lightRemovingEmptyMsg": "Removing empty streams...",
-  "lightSubsettingFontsMsg": "Subsetting fonts...",
-  "lightRemovingUnusedMsg": "Removing unused resources...",
-  "lightBuildingMsg": "Building optimized PDF...",
-  "lightCompletedMsg": "Done! ✓",
-
-  "balancedReadingMsg": "Reading PDF document...",
-  "balancedAnalyzingImagesMsg": "Analyzing images...",
-  "balancedResamplingMsg": "Resampling images to 144 DPI...",
-  "balancedCompressingJpegMsg": "Compressing to JPEG (quality: 65%)...",
-  "balancedOptimizingStreamMsg": "Optimizing image streams...",
-  "balancedCleaningMetadataMsg": "Cleaning metadata...",
-  "balancedOptimizingFontsMsg": "Optimizing fonts...",
-  "balancedBuildingMsg": "Building optimized PDF...",
-  "balancedCompletedMsg": "Done! ✓",
+  "smartReadingMsg": "Reading PDF document...",
+  "smartCleaningMetadataMsg": "Cleaning metadata...",
+  "smartAnalyzingImagesMsg": "Analyzing images...",
+  "smartCompressingMsg": "Compressing page {current} of {total}...",
+  "@smartCompressingMsg": {
+    "placeholders": {
+      "current": {"type": "int"},
+      "total": {"type": "int"}
+    }
+  },
+  "smartBuildingMsg": "Building optimized PDF...",
+  "smartCompletedMsg": "Done! ✓",
 
   "maximumReadingMsg": "Reading PDF document...",
   "maximumAnalyzingImagesMsg": "Analyzing images for archival compression...",
@@ -59,7 +51,6 @@
   "maximumResamplingMsg": "Resampling to 72 DPI (screen standard)...",
   "maximumCompressingJpegMsg": "Applying aggressive JPEG compression (30-40%)...",
   "maximumRemovingMetadataMsg": "Removing all metadata...",
-  "maximumRemovingFontsMsg": "Removing font data...",
   "maximumBuildingMsg": "Building compressed PDF...",
   "maximumCompletedMsg": "Done! ✓",
 

@@ -15,11 +15,9 @@
   "recent": "SON İŞLEMLER",
   "noRecentFiles": "Henüz işlem yok",
 
-  "levelLight": "Hafif",
-  "levelBalanced": "Dengeli",
+  "levelSmart": "Akıllı",
   "levelMaximum": "Maksimum",
-  "levelLightDesc": "Kayıpsız optimizasyon\n~%5-15 küçük",
-  "levelBalancedDesc": "Akıllı görsel sıkıştırma\n~%40-60 küçük",
+  "levelSmartDesc": "Akıllı sıkıştırma\n~%40-60 küçük",
   "levelMaximumDesc": "Agresif arşivleme\n~%70-90 küçük",
 
   "compressing": "Sıkıştırılıyor...",
@@ -34,24 +32,18 @@
   "doneMsg": "Bitti! ✓",
   "compression": "Sıkıştırma",
 
-  "lightReadingMsg": "PDF yapısı okunuyor...",
-  "lightCleaningMetadataMsg": "Belge metaverisi temizleniyor...",
-  "lightCleaningInfoMsg": "Bilgi sözlüğü temizleniyor...",
-  "lightRemovingEmptyMsg": "Boş akışlar kaldırılıyor...",
-  "lightSubsettingFontsMsg": "Fontlar alt kümeye ayrılıyor...",
-  "lightRemovingUnusedMsg": "Kullanılmayan kaynaklar kaldırılıyor...",
-  "lightBuildingMsg": "Optimize edilmiş PDF oluşturuluyor...",
-  "lightCompletedMsg": "Bitti! ✓",
-
-  "balancedReadingMsg": "PDF belgesi okunuyor...",
-  "balancedAnalyzingImagesMsg": "Görseller analiz ediliyor...",
-  "balancedResamplingMsg": "Görseller 144 DPI'ye yeniden örnekleniyor...",
-  "balancedCompressingJpegMsg": "JPEG'e sıkıştırılıyor (kalite: %65)...",
-  "balancedOptimizingStreamMsg": "Görsel akışları optimize ediliyor...",
-  "balancedCleaningMetadataMsg": "Meta veriler temizleniyor...",
-  "balancedOptimizingFontsMsg": "Fontlar optimize ediliyor...",
-  "balancedBuildingMsg": "Optimize edilmiş PDF oluşturuluyor...",
-  "balancedCompletedMsg": "Bitti! ✓",
+  "smartReadingMsg": "PDF belgesi okunuyor...",
+  "smartCleaningMetadataMsg": "Meta veriler temizleniyor...",
+  "smartAnalyzingImagesMsg": "Görseller analiz ediliyor...",
+  "smartCompressingMsg": "{total} sayfadan {current}. sayfa sıkıştırılıyor...",
+  "@smartCompressingMsg": {
+    "placeholders": {
+      "current": {"type": "int"},
+      "total": {"type": "int"}
+    }
+  },
+  "smartBuildingMsg": "Optimize edilmiş PDF oluşturuluyor...",
+  "smartCompletedMsg": "Bitti! ✓",
 
   "maximumReadingMsg": "PDF belgesi okunuyor...",
   "maximumAnalyzingImagesMsg": "Arşivleme sıkıştırması için görseller analiz ediliyor...",
@@ -59,7 +51,6 @@
   "maximumResamplingMsg": "72 DPI'ye yeniden örnekleniyor (ekran standardı)...",
   "maximumCompressingJpegMsg": "Agresif JPEG sıkıştırması uygulanıyor (%30-40)...",
   "maximumRemovingMetadataMsg": "Tüm meta veriler kaldırılıyor...",
-  "maximumRemovingFontsMsg": "Font verisi kaldırılıyor...",
   "maximumBuildingMsg": "Sıkıştırılmış PDF oluşturuluyor...",
   "maximumCompletedMsg": "Bitti! ✓",
 

@@ -88,7 +88,7 @@ class _CompressScreenState extends State<CompressScreen> {
     Uint8List output = Uint8List(0);
 
     await compressor.compressWithProgress(input, widget.level).listen(
-      (message) {
+          (message) {
         if (message is ProgressMessage) {
           _updateProgress(message.percent, message.status);
         } else if (message is ResultMessage) {
@@ -228,9 +228,9 @@ class _CompressScreenState extends State<CompressScreen> {
   String _levelName(BuildContext ctx, CompressionLevel lvl) {
     final l = AppLocalizations.of(ctx);
     switch (lvl) {
-      case CompressionLevel.light:    return l.levelLight;
-      case CompressionLevel.balanced: return l.levelBalanced;
-      case CompressionLevel.maximum:  return l.levelMaximum;
+
+      case CompressionLevel.smart:   return l.levelSmart;
+      case CompressionLevel.maximum: return l.levelMaximum;
     }
   }
 }

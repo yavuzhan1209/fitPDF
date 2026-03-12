@@ -13,9 +13,8 @@ class CompressionLevelSelector extends StatelessWidget {
   Widget build(BuildContext context) {
     final l = AppLocalizations.of(context);
     final levels = [
-      (CompressionLevel.light,    l.levelLight,    l.levelLightDesc),
-      (CompressionLevel.balanced, l.levelBalanced, l.levelBalancedDesc),
-      (CompressionLevel.maximum,  l.levelMaximum,  l.levelMaximumDesc),
+      (CompressionLevel.smart,   l.levelSmart,   l.levelSmartDesc),
+      (CompressionLevel.maximum, l.levelMaximum, l.levelMaximumDesc),
     ];
     return Row(
       children: levels.asMap().entries.map((entry) {
@@ -27,7 +26,7 @@ class CompressionLevelSelector extends StatelessWidget {
             onTap: () => onSelect(lvl),
             child: AnimatedContainer(
               duration: const Duration(milliseconds: 200),
-              margin: EdgeInsets.only(right: i < 2 ? 8 : 0),
+              margin: EdgeInsets.only(right: i < 1 ? 8 : 0),
               padding: const EdgeInsets.symmetric(vertical: 14, horizontal: 8),
               decoration: BoxDecoration(
                 color: sel ? AppTheme.primaryCoral.withValues(alpha: 0.12) : AppTheme.bgCard,
@@ -53,4 +52,3 @@ class CompressionLevelSelector extends StatelessWidget {
     );
   }
 }
-

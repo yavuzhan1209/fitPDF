@@ -22,7 +22,7 @@ class _HomeScreenState extends State<HomeScreen> {
   String? _filePath;
   String? _fileName;
   int?    _fileSizeBytes;
-  CompressionLevel _level = CompressionLevel.balanced;
+  CompressionLevel _level = CompressionLevel.smart;
   bool _picking = false;
 
   Future<void> _pickFile() async {
