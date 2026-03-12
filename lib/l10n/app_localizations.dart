@@ -434,6 +434,48 @@ abstract class AppLocalizations {
   /// **'Done! ✓'**
   String get maximumCompletedMsg;
 
+  /// No description provided for @isolateInitializingMsg.
+  ///
+  /// In en, this message translates to:
+  /// **'Initializing compression worker...'**
+  String get isolateInitializingMsg;
+
+  /// No description provided for @isolateSpawningMsg.
+  ///
+  /// In en, this message translates to:
+  /// **'Starting background compression...'**
+  String get isolateSpawningMsg;
+
+  /// No description provided for @isolateCompressionStartedMsg.
+  ///
+  /// In en, this message translates to:
+  /// **'Compression in progress...'**
+  String get isolateCompressionStartedMsg;
+
+  /// No description provided for @isolateCompressionFailedMsg.
+  ///
+  /// In en, this message translates to:
+  /// **'Compression failed: check file format'**
+  String get isolateCompressionFailedMsg;
+
+  /// No description provided for @isolateIsolateErrorMsg.
+  ///
+  /// In en, this message translates to:
+  /// **'Worker process error'**
+  String get isolateIsolateErrorMsg;
+
+  /// No description provided for @isolateCancelledMsg.
+  ///
+  /// In en, this message translates to:
+  /// **'Compression cancelled'**
+  String get isolateCancelledMsg;
+
+  /// No description provided for @isolateCompletedSuccessMsg.
+  ///
+  /// In en, this message translates to:
+  /// **'Compression completed successfully!'**
+  String get isolateCompletedSuccessMsg;
+
   /// No description provided for @resultTitle.
   ///
   /// In en, this message translates to:

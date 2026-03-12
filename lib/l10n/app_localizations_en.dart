@@ -182,6 +182,29 @@ class AppLocalizationsEn extends AppLocalizations {
   String get maximumCompletedMsg => 'Done! ✓';
 
   @override
+  String get isolateInitializingMsg => 'Initializing compression worker...';
+
+  @override
+  String get isolateSpawningMsg => 'Starting background compression...';
+
+  @override
+  String get isolateCompressionStartedMsg => 'Compression in progress...';
+
+  @override
+  String get isolateCompressionFailedMsg =>
+      'Compression failed: check file format';
+
+  @override
+  String get isolateIsolateErrorMsg => 'Worker process error';
+
+  @override
+  String get isolateCancelledMsg => 'Compression cancelled';
+
+  @override
+  String get isolateCompletedSuccessMsg =>
+      'Compression completed successfully!';
+
+  @override
   String get resultTitle => 'Compression Done!';
 
   @override

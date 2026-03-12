@@ -9,7 +9,7 @@ import '../../../core/theme/app_theme.dart';
 import '../../../core/constants/app_constants.dart';
 import '../../result/presentation/result_screen.dart';
 import 'widgets/squeeze_animation.dart';
-import '../domain/pdf_compressor.dart';
+import '../domain/isolate_compressor.dart';
 
 class CompressScreen extends StatefulWidget {
   final String filePath;
@@ -78,21 +78,39 @@ class _CompressScreenState extends State<CompressScreen> {
     final base = p.basenameWithoutExtension(widget.fileName);
     final outPath = p.join(dir.path, '${base}_compressed.pdf');
 
-    Uint8List output;
-
-    switch (widget.level) {
-      case CompressionLevel.light:
-        output = await PdfCompressor.compressLight(input, onProgress: _updateProgress);
-
-      case CompressionLevel.balanced:
-        output = await PdfCompressor.compressBalanced(input, onProgress: _updateProgress);
-
-      case CompressionLevel.maximum:
-        final confirmed = await _showMaximumWarning();
-        output = confirmed
-            ? await PdfCompressor.compressMaximum(input, onProgress: _updateProgress)
-            : await PdfCompressor.compressBalanced(input, onProgress: _updateProgress);
+    // Show warning for maximum compression level
+    if (widget.level == CompressionLevel.maximum) {
+      final confirmed = await _showMaximumWarning();
+      if (!confirmed) return outPath; // User cancelled, return early
     }
+
+    final compressor = IsolateCompressor();
+    Uint8List output = Uint8List(0);
+
+    await compressor.compressWithProgress(input, widget.level).listen(
+      (message) {
+        if (message is ProgressMessage) {
+          _updateProgress(message.percent, message.status);
+        } else if (message is ResultMessage) {
+          output = message.bytes;
+        } else if (message is ErrorMessage) {
+          if (mounted) {
+            ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+              content: Text('Error: ${message.error}'),
+              backgroundColor: Colors.red,
+            ));
+          }
+        }
+      },
+      onError: (e) {
+        if (mounted) {
+          ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+            content: Text('Compression error: $e'),
+            backgroundColor: Colors.red,
+          ));
+        }
+      },
+    ).asFuture<void>();
 
     await File(outPath).writeAsBytes(output);
     return outPath;

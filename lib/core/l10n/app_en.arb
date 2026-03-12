@@ -63,6 +63,14 @@
   "maximumBuildingMsg": "Building compressed PDF...",
   "maximumCompletedMsg": "Done! ✓",
 
+  "isolateInitializingMsg": "Initializing compression worker...",
+  "isolateSpawningMsg": "Starting background compression...",
+  "isolateCompressionStartedMsg": "Compression in progress...",
+  "isolateCompressionFailedMsg": "Compression failed: check file format",
+  "isolateIsolateErrorMsg": "Worker process error",
+  "isolateCancelledMsg": "Compression cancelled",
+  "isolateCompletedSuccessMsg": "Compression completed successfully!",
+
   "resultTitle": "Compression Done!",
   "original": "Original",
   "compressed": "Compressed",

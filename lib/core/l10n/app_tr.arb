@@ -63,6 +63,14 @@
   "maximumBuildingMsg": "Sıkıştırılmış PDF oluşturuluyor...",
   "maximumCompletedMsg": "Bitti! ✓",
 
+  "isolateInitializingMsg": "Sıkıştırma worker'ı başlatılıyor...",
+  "isolateSpawningMsg": "Arka plan sıkıştırması başlatılıyor...",
+  "isolateCompressionStartedMsg": "Sıkıştırma devam ediyor...",
+  "isolateCompressionFailedMsg": "Sıkıştırma başarısız: dosya formatını kontrol edin",
+  "isolateIsolateErrorMsg": "Worker işlemi hatası",
+  "isolateCancelledMsg": "Sıkıştırma iptal edildi",
+  "isolateCompletedSuccessMsg": "Sıkıştırma başarıyla tamamlandı!",
+
   "resultTitle": "Sıkıştırma Tamamlandı!",
   "original": "Orijinal",
   "compressed": "Sıkıştırılmış",

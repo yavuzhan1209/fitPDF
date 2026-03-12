@@ -185,6 +185,28 @@ class AppLocalizationsTr extends AppLocalizations {
   String get maximumCompletedMsg => 'Bitti! ✓';
 
   @override
+  String get isolateInitializingMsg => 'Sıkıştırma worker\'ı başlatılıyor...';
+
+  @override
+  String get isolateSpawningMsg => 'Arka plan sıkıştırması başlatılıyor...';
+
+  @override
+  String get isolateCompressionStartedMsg => 'Sıkıştırma devam ediyor...';
+
+  @override
+  String get isolateCompressionFailedMsg =>
+      'Sıkıştırma başarısız: dosya formatını kontrol edin';
+
+  @override
+  String get isolateIsolateErrorMsg => 'Worker işlemi hatası';
+
+  @override
+  String get isolateCancelledMsg => 'Sıkıştırma iptal edildi';
+
+  @override
+  String get isolateCompletedSuccessMsg => 'Sıkıştırma başarıyla tamamlandı!';
+
+  @override
   String get resultTitle => 'Sıkıştırma Tamamlandı!';
 
   @override
